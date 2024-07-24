@@ -16,7 +16,7 @@ def summarize_text(text, api_key):
 def generate_hashtags(text, api_key):
     openai.api_key = api_key
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4.0",
         messages=[
             {"role": "system", "content": "Generate 5 hashtags for the following text."},
             {"role": "user", "content": text}
