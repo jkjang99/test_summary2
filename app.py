@@ -1,4 +1,3 @@
-app_py_content = """
 import streamlit as st
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
@@ -35,7 +34,3 @@ if st.button("Generate Summary and Hashtags"):
         st.write(" ".join(hashtags))
     else:
         st.write("Please enter some text to summarize.")
-"""
-
-with open('/mnt/data/app.py', 'w') as f:
-    f.write(app_py_content)
