@@ -4,7 +4,7 @@ import openai
 def summarize_text(text, api_key):
     openai.api_key = api_key
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4.0",
         messages=[
             {"role": "system", "content": "Summarize the following text in 3 sentences."},
             {"role": "user", "content": text}
