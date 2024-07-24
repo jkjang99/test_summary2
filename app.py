@@ -27,7 +27,7 @@ def generate_hashtags(text, api_key):
 
 st.title("Text Summarizer and Hashtag Generator")
 
-api_key = st.text_input("Enter your OpenAI API Key:", type="password")
+api_key = st.text_input("Enter your OpenAI API Key:")
 text = st.text_area("Enter the text you want to summarize:", height=200)
 
 if st.button("Summarize and Generate Hashtags"):
