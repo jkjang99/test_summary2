@@ -3,24 +3,26 @@ import openai
 
 def summarize_text(text, api_key):
     openai.api_key = api_key
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=f"Summarize this text in 3 sentences: {text}",
-        max_tokens=100,
-        temperature=0.5,
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "Summarize the following text in 3 sentences."},
+            {"role": "user", "content": text}
+        ]
     )
-    summary = response.choices[0].text.strip()
+    summary = response.choices[0].message['content'].strip()
     return summary
 
 def generate_hashtags(text, api_key):
     openai.api_key = api_key
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=f"Generate 5 hashtags for this text: {text}",
-        max_tokens=50,
-        temperature=0.5,
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "Generate 5 hashtags for the following text."},
+            {"role": "user", "content": text}
+        ]
     )
-    hashtags = response.choices[0].text.strip().split("\n")
+    hashtags = response.choices[0].message['content'].strip().split("\n")
     return hashtags
 
 st.title("Text Summarizer and Hashtag Generator")
