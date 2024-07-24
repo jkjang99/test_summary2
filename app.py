@@ -4,7 +4,7 @@ import openai
 def summarize_text(text, api_key):
     openai.api_key = api_key
     response = openai.ChatCompletion.create(
-        model="gpt-4.0",
+        model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "Summarize the following text in 3 sentences."},
             {"role": "user", "content": text}
@@ -16,7 +16,7 @@ def summarize_text(text, api_key):
 def generate_hashtags(text, api_key):
     openai.api_key = api_key
     response = openai.ChatCompletion.create(
-        model="gpt-4.0",
+        model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "Generate 5 hashtags for the following text."},
             {"role": "user", "content": text}
@@ -27,7 +27,7 @@ def generate_hashtags(text, api_key):
 
 st.title("Text Summarizer and Hashtag Generator")
 
-api_key = st.text_input("Enter your OpenAI API Key:")
+api_key = st.text_input("Enter your OpenAI API Key:", type="password")
 text = st.text_area("Enter the text you want to summarize:", height=200)
 
 if st.button("Summarize and Generate Hashtags"):
